@@ -1,0 +1,5 @@
+<?php
+
+    echo "\n Press Ctrl-C to quit\n\n";
+    
+    exec("php -S localhost:8000 -t public");
