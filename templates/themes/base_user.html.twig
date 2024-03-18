@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         {# Le titre de la page #}
-        <title>{% block title %}{% endblock %} - ElectroTech</title>
+        <title>{% block title %}{% endblock %} - Espace client - ElectroTech</title>
 
         {# La description de la page #}
         <meta name="description" content="{% block description %}{% endblock %}">
@@ -80,7 +80,7 @@
                     {% if app.user %}
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
                                 {{app.user.firstName}}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
@@ -89,9 +89,6 @@
                                     <a class="dropdown-item" href="{{path('admin_home_index')}}">Espace admin</a>
                                 </li>
                                 {% endif %}
-                                <li>
-                                    <a class="dropdown-item" href="{{path('user_home_index')}}">Espace client</a>
-                                </li>
                                 <li>
                                     <a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
                                 </li>
@@ -107,8 +104,28 @@
         </nav>
 
         {# Contenu spécifique à chaque page #}
-        <main class="container-fluid mt-5">
-            {% block main %}{% endblock %}
+        <main class="container-fluid my-5">
+            <div class="row my-5">
+                <div class="col-md-3">
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a class="text-decoration-none" href="{{path('user_home_index')}}">Espace client</a>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Mes adresses
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Mes commandes
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Mon profil
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    {% block main %}{% endblock %}
+                </div>
+            </div>
         </main>
 
         {# Le pieds de page #}
