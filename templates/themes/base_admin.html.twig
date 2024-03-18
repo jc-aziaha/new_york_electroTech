@@ -6,7 +6,7 @@
     <meta name="description" content="{% block description %}{% endblock %} - ElectroTech">
     <meta name="author" content="dwwm, newyork">
     <meta name="generator" content="dwwm">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %} Espace Admin - ElectoTech</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
@@ -31,7 +31,11 @@
     {# Chargement du js #}
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
-    {% endblock %}   
+    {% endblock %}  
+
+    {% block jQuery %}{% endblock %}
+
+    {% block dataTables %}{% endblock %}
 
     <!-- Custom styles for this template -->
     <style>
@@ -197,9 +201,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
-                                    <svg class="bi"><use xlink:href="#file-earmark"/></svg>
-                                    Catégories
+                                <a class="nav-link d-flex align-items-center gap-2 text-dark" href="{{path('admin_category_index')}}">
+                                    <i class="fa-regular fa-folder-open"></i>
+                                    Les catégories
                                 </a>
                             </li>
                             <li class="nav-item">
