@@ -49,6 +49,7 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         return new RedirectResponse($this->urlGenerator->generate('visitor_welcome_index'));
+
     }
 
     protected function getLoginUrl(Request $request): string
