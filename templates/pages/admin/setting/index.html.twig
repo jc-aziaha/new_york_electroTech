@@ -1,0 +1,54 @@
+{% extends 'themes/base_admin.html.twig' %}
+
+{% block title %}Les paramètres du site{% endblock %}
+
+{% block description %}Les paramètres du site{% endblock %}
+
+{% block jQuery %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% block dataTables %}
+    <link href="https://cdn.datatables.net/v/bs5/dt-2.0.2/datatables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/v/bs5/dt-2.0.2/datatables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/2.0.2/i18n/fr-FR.json',
+                }
+            });
+        } );
+    </script>
+{% endblock %}
+
+
+{% block main %}
+    <h1 class="text-center my-3 display-5">Les paramètres du site</h1>
+
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-8 col-lg-6 mx-auto shadow p-3">
+                {% include 'components/_alert.html.twig' %}
+                <div class="card border-0">
+                    <p><strong>Nom du site</strong>: {{setting.websiteName}}</p>
+                    <p><strong>Url du site</strong>: {{setting.websiteUrl}}</p>
+                    <p><strong>Email du site</strong>: {{setting.email}}</p>
+                    <p><strong>Téléphone du site</strong>: {{setting.phone}}</p>
+                    <p><strong>Rue</strong>: {{setting.street ?? "Non renseignée"}}</p>
+                    <p><strong>Ville</strong>: {{setting.city ?? "Non renseignée"}}</p>
+                    <p><strong>Code postal</strong>: {{setting.postalCode ?? "Non renseigné"}}</p>
+                    <p><strong>Pays</strong>: {{setting.state}}</p>
+                    <p><strong>Lien facebook</strong>: {{setting.facebookLink}}</p>
+                    <p><strong>Lien instagram</strong>: {{setting.instagramLink}}</p>
+                    <p><strong>Lien tiktok</strong>: {{setting.tiktokLink}}</p>
+                    <p><strong>Description du site</strong>: {{setting.description}}</p>
+                    <p>
+                        <a href="{{path('admin_setting_edit', {'id': setting.id})}}" class="btn btn-primary w-100">Modifier les paramètres</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
