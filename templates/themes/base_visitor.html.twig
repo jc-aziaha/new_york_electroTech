@@ -71,7 +71,7 @@
                             <a class="nav-link" href="{{path('visitor_contact_create')}}">Contact</a>
                         </li>
                         <li class="my-3 my-lg-0 mx-lg-3">
-                            {# Formulaire #}
+                            {{render(controller("App\\Controller\\Visitor\\Search\\SearchController::getSearchBar"))}}
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{path('visitor_cart_index')}}"><i class="fas fa-shopping-cart"></i> Mon panier</a>
