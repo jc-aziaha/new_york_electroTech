@@ -71,10 +71,10 @@
                             <a class="nav-link" href="{{path('visitor_contact_create')}}">Contact</a>
                         </li>
                         <li class="my-3 my-lg-0 mx-lg-3">
-                            {# Formulaire #}
+                            {{render(controller("App\\Controller\\Visitor\\Search\\SearchController::getSearchBar"))}}
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{path('visitor_cart_index')}}"><i class="fas fa-shopping-cart"></i> Mon panier</a>
+                            <a class="nav-link" href="{{path('visitor_cart_index')}}"> ({{cart_service.getCartItems|length}}) <i class="fas fa-shopping-cart"></i> Mon panier</a>
                         </li>
                     </ul>
                     {% if app.user %}
@@ -112,7 +112,8 @@
                             <a class="text-decoration-none" href="{{path('user_home_index')}}">Espace client</a>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Mes adresses
+                            <a class="text-decoration-none" href="{{path('user_address_index')}}">Mes adresses</a>
+                            
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Mes commandes
