@@ -52,6 +52,11 @@
                         {{form_widget(form.lastName, {"attr": {"class": "form-control"}})}}
                     </div>
                     <div class="mb-3">
+                        <label>L'email</label>
+                        <div class="text-danger">{{form_errors(form.email)}}</div>
+                        {{form_widget(form.email, {"attr": {"class": "form-control"}})}}
+                    </div>
+                    <div class="mb-3">
                         <label>Le numéro de téléphone <span class="text-danger">*</span></label>
                         <div class="text-danger">{{form_errors(form.phone)}}</div>
                         {{form_widget(form.phone, {"attr": {"class": "form-control"}})}}

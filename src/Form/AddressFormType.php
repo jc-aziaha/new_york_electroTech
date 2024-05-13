@@ -7,6 +7,7 @@ use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -27,6 +28,7 @@ class AddressFormType extends AbstractType
             ->add('keyword', TextType::class)
             ->add('firstName', TextType::class)
             ->add('lastName', TextType::class)
+            ->add('email', EmailType::class)
             ->add('phone', TelType::class)
             ->add('company', TextType::class)
             ->add('details', TextareaType::class)

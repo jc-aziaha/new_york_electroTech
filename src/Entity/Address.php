@@ -145,23 +145,16 @@ class Address
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $email = null;
+
     
     public function __toString()
     {
-        $part1 = $this->getKeyword() ? "{$this->getKeyword()}: [br]" : "";
-        $part2 = "{$this->getFirstName()} {$this->getLastName()} --- [br] {$this->getStreet()} {$this->getCity()} {$this->getPostalCode()}, {$this->getCountry()}";
+        $part1 = $this->getKeyword() ? "{$this->getKeyword()}:" : "";
+        $part2 = "{$this->getFirstName()} {$this->getLastName()} --- {$this->getStreet()} {$this->getCity()} {$this->getPostalCode()}, {$this->getCountry()}";
 
         return "$part1 $part2";
-
-
-        // return $this->getKeyword() 
-        //     ? $this->getKeyword() ? "[br]" . $this->getStreet() . "[br]" . $this->getFirstName() . " " . $this->getLastName() . "[br]"
-        //     : "Adresse: [br]" . $this->getStreet() . "[br]" . $this->getFirstName() . " " . $this->getLastName() . "[br]"
-        // ;
-        // $part2 = "{$this->getFirstName()} {$this->getLastName()}, {$this->getStreet()} [br]";
-        // $part3 = "{$this->getPostalCode()} {$this->getCity()}, {$this->getCountry()} [br]";
-
-        // return "$part1 $part2 $part3";
     }
 
     public function getId(): ?int
@@ -320,6 +313,18 @@ class Address
     public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static 
     {
         $this->updatedAt = $updatedAt;
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): static
+    {
+        $this->email = $email;
+
         return $this;
     }
 }
